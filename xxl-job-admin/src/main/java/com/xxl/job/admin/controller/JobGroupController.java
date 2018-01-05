@@ -4,7 +4,7 @@ import com.xxl.job.admin.core.model.XxlJobGroup;
 import com.xxl.job.admin.dao.XxlJobGroupDao;
 import com.xxl.job.admin.dao.XxlJobInfoDao;
 import com.xxl.job.core.biz.model.ReturnT;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,7 +100,7 @@ public class JobGroupController {
 	public ReturnT<String> remove(int id){
 
 		// valid
-		int count = xxlJobInfoDao.pageListCount(0, 10, id, null);
+		int count = xxlJobInfoDao.pageListCount(0, 10, id, null, null);
 		if (count > 0) {
 			return new ReturnT<String>(500, "该分组使用中, 不可删除");
 		}
